@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiPo Batteries Explained — Uncle Bubba's Drones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+</head>
+<body>
+<div class="grid-overlay"></div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"><span>UB</span></span> UNCLE BUBBA'S DRONES</a>
+    <nav>
+      <a href="index.html">Catalog</a>
+      <a href="guides.html" class="here">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="eyebrow">Buying guide</div>
+<h1>LiPo batteries explained</h1>
+
+<p>Batteries are the part most likely to disappoint you and the part most likely to hurt you. Both problems come down to understanding four numbers and a handful of habits.</p>
+
+<h2>S: cell count</h2>
+<p>"6S" means six cells wired in series. Each LiPo cell sits at roughly 3.7V nominal, 4.2V fully charged. So a 6S pack is about 22.2V nominal and 25.2V off the charger.</p>
+<p>More cells means more voltage, which means more speed from the same motor — and more strain on everything downstream. Your motors and ESC both state a supported cell range. Both have to allow it.</p>
+
+<h2>mAh: capacity</h2>
+<p>Capacity is how much energy the pack holds. A 1300mAh pack holds roughly half again what an 850mAh pack does.</p>
+<p>Bigger isn't automatically better. Capacity comes with weight, and weight costs you flight time and agility. There's a point where adding capacity makes the aircraft slower to accelerate and no longer flies meaningfully longer. Long range builds push capacity high on purpose; freestyle builds usually don't.</p>
+
+<h2>C rating: how fast it can deliver</h2>
+<p>The C rating describes continuous discharge capability as a multiple of capacity. Treat manufacturer C ratings with real skepticism — they're marketing numbers as often as engineering ones, and they're inconsistent between brands.</p>
+<p>What matters practically: an underrated pack sags under hard throttle. You'll feel it as a power drop mid-punch, and you'll see it as voltage dipping further than it should.</p>
+
+<h2>Connectors: check before you order</h2>
+<ul>
+<li><strong>XT60</strong> — standard on 5-inch and larger builds</li>
+<li><strong>XT30</strong> — smaller builds drawing less current</li>
+<li><strong>PH2.0 / BT2.0</strong> — whoops and micros</li>
+</ul>
+<p>Connectors are solderable if you own an iron and know how. If you don't, filter by connector and save yourself the project.</p>
+
+<h2>Voltage habits that decide pack lifespan</h2>
+<p>This is the part that separates packs lasting years from packs puffing in months.</p>
+<ul>
+<li><strong>Full charge:</strong> 4.2V per cell. Don't go above it.</li>
+<li><strong>Land around 3.5V per cell</strong> under no load. Flying a pack down to empty repeatedly kills it.</li>
+<li><strong>Never below 3.0V per cell.</strong> Below this, damage is usually permanent.</li>
+<li><strong>Storage voltage is about 3.8V per cell.</strong> This is the big one — leaving packs fully charged for weeks degrades them noticeably. Most decent chargers have a storage mode that'll take a pack to storage charge automatically.</li>
+</ul>
+
+<div class="box">
+<p><strong>Safety, plainly.</strong> LiPos can catch fire, and a LiPo fire is fast, extremely hot, and hard to put out. Charge in a fireproof bag or metal container. Never charge unattended. Never charge a pack that's puffed, punctured, or was in a hard crash — set it aside somewhere non-flammable and check it later. After a crash, give packs time before charging: damage isn't always visible immediately.</p>
+</div>
+
+<h2>Buying used</h2>
+<p>Don't, unless you know the seller. A pack's history — how deeply it was discharged, how it was stored, what crashes it survived — is invisible from the outside and determines everything about whether it's safe.</p>
+
+<div class="box">
+<p><strong>Before you order:</strong> confirm cell count is supported by both your motors and ESC, the connector matches what's on your aircraft, the physical size fits your frame and strap, and you own a charger that handles that cell count.</p>
+</div>
+
+<p style="font-size:13px;margin-top:26px;">This is general guidance, not a substitute for your battery manufacturer's instructions. Follow those first — see our <a href="disclosure.html" style="color:var(--green);text-decoration:underline;">disclosure</a>.</p>
+</main>
+<footer>
+  Uncle Bubba's Drones
+  <nav>
+    <a href="index.html">Catalog</a>
+    <a href="guides.html">Guides</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="disclosure.html">Affiliate Disclosure</a>
+  </nav>
+</footer>
+</body>
+</html>
