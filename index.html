@@ -104,6 +104,11 @@
   .rprice{font-family:var(--mono);font-weight:600;font-size:17px;}
   .rstore{font-size:11px;color:var(--faint);margin-top:3px;}
   .rmulti{font-family:var(--mono);font-size:10px;color:var(--green);margin-top:4px;}
+  .sale{font-family:var(--mono);font-size:9px;color:#ffd24d;background:rgba(255,210,77,.12);
+    border:1px solid #4a4021;border-radius:20px;padding:2px 7px;display:inline-block;margin-top:5px;
+    white-space:nowrap;}
+  .was{font-family:var(--mono);font-size:11px;color:var(--faint);
+    text-decoration:line-through;margin-left:6px;}
   .empty{padding:60px 10px;text-align:center;color:var(--faint);
     font-family:var(--mono);font-size:13px;}
 
@@ -198,6 +203,9 @@
     <button class="sclose" onclick="closeFilters()">✕</button>
     <div class="sname" style="margin-top:0">Filters</div>
 
+    <div class="slab">Deals</div>
+    <div class="chips wrap" id="saleChips"></div>
+
     <div class="slab">Built for</div>
     <div class="chips wrap" id="useChips"></div>
 
@@ -250,11 +258,15 @@
   </nav>
 </footer>
 
+<script src="catalog.js"></script>
 <script>
 const categories = [
   {id:'DRN', name:"Complete Drones"},
+  {id:'FRM', name:"Frames"},
   {id:'PRP', name:"Propellers"},
   {id:'MTR', name:"Motors"},
+  {id:'BAT', name:"Batteries"},
+  {id:'FC', name:"Flight Controllers"},
   {id:'RXC', name:"Controllers"},
   {id:'GMB', name:"Gimbal & Camera"},
   {id:'ARM', name:"Arms & Shells"},
@@ -3681,15 +3693,2241 @@ const products = [
   "use": [
    "Photography"
   ]
+ },
+ {
+  "id": "GFP-AF2406X",
+  "cat": "MTR",
+  "brand": "Axisflying",
+  "name": "AF2406-X Modular Motor \u2014 1860KV/2080KV",
+  "meta": "2406 stator, modular bell design",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 34.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/axisflying-af2406-x-modular-motor-1860kv-2080kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-VCI2207P",
+  "cat": "MTR",
+  "brand": "VCI Hobby",
+  "name": "Spark 2207 Pro Motor \u2014 2050KV",
+  "meta": "2207 stator, 6S freestyle",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 24.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/vci-spark-2207-pro-2050kv-motor.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-FHK2004",
+  "cat": "MTR",
+  "brand": "Flash Hobby",
+  "name": "King K2004 Motor \u2014 1900KV (Orange)",
+  "meta": "2004 stator, lightweight build",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 15.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/flash-hobby-king-k2004-motor-1900kv-orange.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-ZIPV2",
+  "cat": "MTR",
+  "brand": "Lumenier",
+  "name": "ZIP V2 2807 Blackout Motor \u2014 1700KV",
+  "meta": "2807 stator, long range",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 24.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/lumenier-zip-v2-2807-blackout-motor-1700kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 37.99
+   }
+  ]
+ },
+ {
+  "id": "GFP-FHK2004V2",
+  "cat": "MTR",
+  "brand": "Flash Hobby",
+  "name": "King K2004 V2 Motor \u2014 1900KV/3600KV (Silver)",
+  "meta": "2004 stator, two KV options",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 12.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/flash-hobby-king-k2004-v2-motor-1900kv-3600kv-silver.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-AF22075",
+  "cat": "MTR",
+  "brand": "Axisflying",
+  "name": "AF2207.5 FPV Motor \u2014 1960KV",
+  "meta": "2207.5 stator, racing",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 25.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/axisflying-af2207-5-racing-motor-1960kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-VCI2006",
+  "cat": "MTR",
+  "brand": "VCI Hobby",
+  "name": "Spark 2006 Motor \u2014 2150KV",
+  "meta": "2006 stator, sub-250 builds",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 15.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/vci-hobby-spark-2006-motor-2150kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-VCI2808",
+  "cat": "MTR",
+  "brand": "VCI Hobby",
+  "name": "ARES 2808 Motor \u2014 1350KV",
+  "meta": "2808 stator, 7\" long range",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 21.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/vci-hobby-ares-2808-motor-1350kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-VCI2010",
+  "cat": "MTR",
+  "brand": "VCI Hobby",
+  "name": "ZOE 2010 Motor \u2014 1911KV",
+  "meta": "2010 stator, cinewhoop",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 21.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/vci-hobby-zoe-2010-motor-1911kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-VCIYUKI",
+  "cat": "MTR",
+  "brand": "VCI Hobby",
+  "name": "Yuki Savage 2207 Motor \u2014 2120KV",
+  "meta": "2207 stator, freestyle",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 24.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/vci-hobby-yuki-savage-2207-motor-2120kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-BH2810",
+  "cat": "MTR",
+  "brand": "BrotherHobby",
+  "name": "Avenger 2810 Motor \u2014 1350KV",
+  "meta": "2810 stator, heavy lift / long range",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 27.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/brotherhobby-avenger-2810-motor-1350kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-XING2207",
+  "cat": "MTR",
+  "brand": "iFlight",
+  "name": "XING2 2207 Unibell Motor \u2014 2050KV",
+  "meta": "2207 stator, unibell, 6S",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 28.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/iflight-xing2-2207-unibell-motor-2050kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-AOS1605",
+  "cat": "MTR",
+  "brand": "AOS RC",
+  "name": "Supernova 1605 FPV Motor \u2014 3900KV",
+  "meta": "1605 stator, 3\" builds",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 18.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/aos-rc-supernova-1605-fpv-motor-3900kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-AOS1404",
+  "cat": "MTR",
+  "brand": "AOS RC",
+  "name": "Supernova 1404 FPV Motor \u2014 4000KV",
+  "meta": "1404 stator, toothpick",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 17.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/aos-rc-supernova-1404-fpv-motor-4000kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-LUM2307J",
+  "cat": "MTR",
+  "brand": "Lumenier",
+  "name": "2307 JohnnyFPV V3 Pro Cinematic Motor",
+  "meta": "2307 stator, cinematic tune",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 33.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/lumenier-2307-johnnyfpv-v3-pro-cinematic-motor.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-AFBB2307",
+  "cat": "MTR",
+  "brand": "Axisflying",
+  "name": "Blackbird V4 2307 FPV Motor",
+  "meta": "2307 stator, freestyle",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 27.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/axisflying-blackbird-v4-2307-fpv-motor.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-XING2205",
+  "cat": "MTR",
+  "brand": "iFlight",
+  "name": "XING2 2205 FPV Motor \u2014 2300KV (Unibell)",
+  "meta": "2205 stator, 4-5\" builds",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 23.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/iflight-xing2-2205-motor-2300kv-unibell.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-AFC206",
+  "cat": "MTR",
+  "brand": "Axisflying",
+  "name": "C206 2006 Motor \u2014 1960KV",
+  "meta": "2006 stator, 1.5mm shaft",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 25.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/axisflying-c206-2006-1-5mm-shaft-motor-1960kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-AFC227",
+  "cat": "MTR",
+  "brand": "Axisflying",
+  "name": "C227 Motor \u2014 1960KV",
+  "meta": "2207-class, cinematic",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 27.49,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/axisflying-c227-motor-1960kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "GFP-LUM2807J",
+  "cat": "MTR",
+  "brand": "Lumenier",
+  "name": "2807 JohnnyFPV V3 Pro Cinematic Motor",
+  "meta": "2807 stator, long range cinematic",
+  "fits": [
+   "FPV quad builds \u2014 check frame mount pattern"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 38.99,
+    "url": "https://www.getfpv.com/motors/mini-quad-motors/lumenier-2807-johnnyfpv-v3-pro-cinematic-motor.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-GEPRX",
+  "cat": "RXC",
+  "brand": "GEPRC",
+  "name": "ELRS Dual 915M PA500 True Diversity Receiver \u2014 915MHz",
+  "meta": "Dual-antenna diversity, long range",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 24.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/geprc-elrs-dual-915m-pa500-diversity-receiver-915mhz.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 29.99
+   }
+  ]
+ },
+ {
+  "id": "CLR-EMAXSV",
+  "cat": "ACC",
+  "brand": "EMAX",
+  "name": "MD HV High Voltage Servo \u2014 ES09MDHV",
+  "meta": "Metal gear, high-voltage servo",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 13.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/emax-md-hv-high-voltage-servo-es09mdhv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 22.49
+   }
+  ]
+ },
+ {
+  "id": "CLR-CLRLED",
+  "cat": "ACC",
+  "brand": "CLRacing",
+  "name": "Race LED/PCB Wire 4 Pack \u2014 8x25mm (White)",
+  "meta": "Four LED strips, 8x25mm",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 2.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/clracing-race-led-pcb-wire-4-pack-8x25mm-white.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 7.49
+   }
+  ]
+ },
+ {
+  "id": "CLR-SKYREG",
+  "cat": "ACC",
+  "brand": "SkyStars",
+  "name": "Mini 2A Step-Down Voltage Regulator \u2014 5V",
+  "meta": "DC4-36V to DC5V, 2A",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 5.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/skystars-mini-2a-step-down-voltage-regulator-module-5v-dc4-36v-to-dc5v.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 12.99
+   }
+  ]
+ },
+ {
+  "id": "CLR-AQUILA",
+  "cat": "FRM",
+  "brand": "BETAFPV",
+  "name": "Aquila16 Frame",
+  "meta": "16-inch class frame kit",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 5.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/betafpv-aquila16-frame.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 11.99
+   }
+  ]
+ },
+ {
+  "id": "CLR-BHT1407",
+  "cat": "MTR",
+  "brand": "BrotherHobby",
+  "name": "Tornado T2 1407 Motor (CW) \u2014 2800/3600/4100KV",
+  "meta": "Multiple KV options, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 11.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/brotherhobby-tornado-t2-1407-motor-cw-2800kv-3600kv-4100kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-IFR5",
+  "cat": "MTR",
+  "brand": "iFlight",
+  "name": "R5 2207 Motor \u2014 1590KV/2050KV",
+  "meta": "Two KV options, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 18.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/iflight-r5-2207-motor-1590kv-2050kv.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-FSDJI2",
+  "cat": "GGL",
+  "brand": "FatStraps",
+  "name": "HD Goggle Strap \u2014 DJI Goggles 2 / Walksnail Avatar X",
+  "meta": "Multiple patterns, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 24.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/fatstraps-hd-goggle-strap-dji-goggles-2-walksnail-avatar-goggles-x.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-FSDJIFPV",
+  "cat": "GGL",
+  "brand": "FatStraps",
+  "name": "HD Goggle Strap \u2014 DJI FPV / Avatar / Dominator / HDZero",
+  "meta": "Multiple patterns, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 24.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/fatstraps-hd-goggle-strap-dji-fpv-avatar-dominator-hdzero.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-FSWALK",
+  "cat": "GGL",
+  "brand": "FatStraps",
+  "name": "Walksnail Goggles L Strap",
+  "meta": "Multiple patterns, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 19.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/fatstraps-walksnail-goggles-l-goggle-strap.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-RMSTAND",
+  "cat": "RXC",
+  "brand": "RadioMaster",
+  "name": "TX15 Folding Stand / Handle",
+  "meta": "CNC aluminium, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 11.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/radiomaster-tx15-folding-stand-handle-cnc-aluminum.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-RMCNC",
+  "cat": "RXC",
+  "brand": "RadioMaster",
+  "name": "TX15 Full CNC Parts Set",
+  "meta": "Complete CNC upgrade set, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 26.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/radiomaster-tx15-full-cnc-parts-set.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-SBGUARD",
+  "cat": "PRP",
+  "brand": "SpeedyBee",
+  "name": "Bee25 2.5\" Protective Prop Guard Ring",
+  "meta": "Ducted guard ring, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 4.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/speedybee-bee25-2-5-protective-prop-guard-ring.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-DS20",
+  "cat": "FRM",
+  "brand": "GEPRC",
+  "name": "DarkStar20 GEP-DS20 Cinewhoop Frame Kit",
+  "meta": "2-inch cinewhoop frame, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 9.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/geprc-darkstar20-gep-ds20-cinewhoop-frame-kit.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-FF20",
+  "cat": "DRN",
+  "brand": "Flywoo",
+  "name": "Firefly 20 Pro BNF Drone \u2014 No FPV System",
+  "meta": "Bind-and-fly micro, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 146.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/flywoo-firefly-20-pro-bnf-drone-no-fpv-system.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-FF25",
+  "cat": "DRN",
+  "brand": "Flywoo",
+  "name": "Firefly 25 Mini BNF Drone w/ DJI O4 Pro",
+  "meta": "Bind-and-fly with O4 Pro, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 367.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/flywoo-firefly-25-mini-bnf-drone-w-dji-o4-pro.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "CLR-C35",
+  "cat": "DRN",
+  "brand": "Axisflying",
+  "name": "C35 V3 Drone \u2014 No FPV System + GPS",
+  "meta": "3.5-inch cinematic build, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 175.99,
+    "url": "https://www.getfpv.com/on-sale/clearance/axisflying-c35-v3-drone-no-fpv-system-gps.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "AM-SAMM10Q",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "SAM-M10Q GPS Module + Antenna Rear Mount",
+  "meta": "3D-printed rear GPS mount",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 7.99,
+    "url": "https://www.getfpv.com/fpv/antennas/antenna-mounts/lumenier-sam-m10q-gps-module-antenna-rear-mount.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "AM-QAVPRO",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "QAV-PRO Micro Whoop 2.5\" TPU Antenna Mount",
+  "meta": "Flexible TPU, whoop builds",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 2.99,
+    "url": "https://www.getfpv.com/fpv/antennas/antenna-mounts/lumenier-qav-pro-micro-whoop-2-5-tpu-antenna-mount.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "AM-PHREAK",
+  "cat": "ANT",
+  "brand": "XILO",
+  "name": "Phreakstyle Antenna Mount",
+  "meta": "TPU mount for Phreakstyle frames",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 7.69,
+    "url": "https://www.getfpv.com/fpv/antennas/antenna-mounts/xilo-phreakstyle-antenna-mount.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "AM-QAVR2",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "QAV-R 2 Antenna Mount",
+  "meta": "TPU mount for QAV-R 2 frames",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 4.99,
+    "url": "https://www.getfpv.com/fpv/antennas/antenna-mounts/lumenier-qav-r-2-antenna-mount.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link",
+    "was": 7.69
+   }
+  ]
+ },
+ {
+  "id": "AM-ADAPTG2",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "Adapters + AXII Antenna Upgrade Bundle \u2014 DJI Goggles 2 (RP-SMA)",
+  "meta": "Adapter set plus AXII antennas, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 27.99,
+    "url": "https://www.getfpv.com/fpv/antennas/antenna-mounts/lumenier-adapters-axii-antenna-upgrade-bundle-for-dji-goggles-2-rp-sma.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "AM-UNIVKIT",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "Universal Antenna Adapter Kit \u2014 DJI Goggles 2",
+  "meta": "Adapter kit, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "GetFPV",
+    "price": 27.99,
+    "url": "https://www.getfpv.com/fpv/antennas/antenna-mounts/lumenier-universal-antenna-adapter-kit-for-dji-goggles-2.html?afid=f9ZwBT8KFs7p0k9t&referring_service=link"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-SKYRC",
+  "cat": "ACC",
+  "brand": "SkyRC",
+  "name": "GSM020 GNSS Performance Analyzer",
+  "meta": "GPS speed/performance logger",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 83.99,
+    "url": "https://www.racedayquads.com/products/skyrc-gsm020-gnss-performance-analyzer",
+    "was": 99.9
+   }
+  ]
+ },
+ {
+  "id": "RDQ-4S850",
+  "cat": "BAT",
+  "brand": "GNB",
+  "name": "RDQ Series 15.2V 4S 850mAh 60C LiHV (3-pack)",
+  "meta": "Long type, XT30, whoop/micro",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 56.49,
+    "url": "https://www.racedayquads.com/products/3-pack-of-rdq-series-15-2v-4s-850mah-60c-lihv-whoop-micro-battery-long-type-xt30",
+    "was": 66.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-6S720",
+  "cat": "BAT",
+  "brand": "GNB",
+  "name": "RDQ Series 22.8V 6S 720mAh 100C LiHV (3-pack)",
+  "meta": "XT30, whoop/micro",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 43.56,
+    "url": "https://www.racedayquads.com/products/3-pack-of-rdq-series-22-8v-6s-720mah-100c-lihv-whoop-micro-battery-xt30",
+    "was": 89.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-1S450",
+  "cat": "BAT",
+  "brand": "GNB",
+  "name": "Gaoneng 3.7V 1S 450mAh 80C LiPo (long type)",
+  "meta": "Cabled PH2.0, whoop/micro",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 4.99,
+    "url": "https://www.racedayquads.com/products/gaoneng-gnb-3-7v-1s-450mah-80c-lipo-whoop-micro-battery-long-type-w-cabled-connector-ph2-0"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-5S650",
+  "cat": "BAT",
+  "brand": "RDQ",
+  "name": "RDQ Series 19V 5S 650mAh 120C LiHV",
+  "meta": "XT30, micro builds",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 26.99,
+    "url": "https://www.racedayquads.com/products/rdq-series-19v-5s-650mah-120c-lihv-battery-xt30"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-PACER",
+  "cat": "FC",
+  "brand": "T-Motor",
+  "name": "Pacer Alpha G4 3-6S 30x30 Flight Controller",
+  "meta": "Multiple versions, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 37.19,
+    "url": "https://www.racedayquads.com/products/t-motor-pacer-alpha-g4-hd-3-6s-30x30-flight-controller-choose-your-version",
+    "was": 99.89
+   }
+  ]
+ },
+ {
+  "id": "RDQ-ASBO-A",
+  "cat": "FRM",
+  "brand": "DaddyLovesQuads",
+  "name": "ASBO XR 3\" Analog Micro Toothpick Frame",
+  "meta": "Analog build, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 18.19,
+    "url": "https://www.racedayquads.com/products/daddylovesquads-asbo-xr-3-analog-micro-toothpick-frame",
+    "was": 37.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-ASBO-W",
+  "cat": "FRM",
+  "brand": "DaddyLovesQuads",
+  "name": "ASBO XR 3\" Walksnail Micro Toothpick Frame",
+  "meta": "Walksnail build, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 18.19,
+    "url": "https://www.racedayquads.com/products/daddylovesquads-asbo-xr-3-walksnail-micro-toothpick-frame",
+    "was": 37.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-BADASS",
+  "cat": "MTR",
+  "brand": "RDQ",
+  "name": "Badass 2 \u2014 2306.5 Motor (1400/1900/2400KV)",
+  "meta": "Three KV options, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 17.39,
+    "url": "https://www.racedayquads.com/products/rdq-badass-2-2306-5-motor-1400kv-1900kv-2400kv",
+    "was": 20.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-VICTORY",
+  "cat": "ANT",
+  "brand": "VAS",
+  "name": "5.8GHz Victory Long Range RP-SMA Antenna",
+  "meta": "Choose polarization, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 15.44,
+    "url": "https://www.racedayquads.com/products/vas-5-8ghz-victory-long-range-rp-sma-antenna-choose-polarization",
+    "was": 23.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-UPS6AC",
+  "cat": "ACC",
+  "brand": "UltraPower",
+  "name": "UP-S6AC 6-Channel 1S Whoop Charger (as-is, no cables)",
+  "meta": "4.35W, LiPo/LiHV",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 15.39,
+    "url": "https://www.racedayquads.com/products/as-is-ultra-power-up-s6ac-4-35w-1a-1s-lipo-lihv-6-channel-ac-dc-whoop-charger-no-cables",
+    "was": 24.2
+   }
+  ]
+ },
+ {
+  "id": "RDQ-TS80TIP",
+  "cat": "TLS",
+  "brand": "CHEN",
+  "name": "TS80P BO2 Tip for TS80 Soldering Iron",
+  "meta": "Replacement iron tip",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 14.85,
+    "url": "https://www.racedayquads.com/products/ts80p-bo2-tip-for-ts80-soldering-iron",
+    "was": 26.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-CROSSHAIR",
+  "cat": "ANT",
+  "brand": "VAS",
+  "name": "Walksnail VRX Crosshair XTreme Mini Mod",
+  "meta": "Choose polarization, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 14.0,
+    "url": "https://www.racedayquads.com/products/vas-walksnail-vrx-crosshair-xtreme-mini-mod-choose-polarization",
+    "was": 69.95
+   }
+  ]
+ },
+ {
+  "id": "RDQ-HALO2406",
+  "cat": "MTR",
+  "brand": "Camera Butter",
+  "name": "Halo Cinematic 2406 1800KV Motor",
+  "meta": "Cinematic tune, 2406 stator",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 13.22,
+    "url": "https://www.racedayquads.com/products/camera-butter-halo-cinematic-2406-1800kv-motor",
+    "was": 40.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-DEMIBOT",
+  "cat": "FRM",
+  "brand": "Ummagawd",
+  "name": "Demibot 5\" Replacement Top Plate",
+  "meta": "Carbon top plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 13.19,
+    "url": "https://www.racedayquads.com/products/ummawgawd-demibot-5-replacement-top-plate",
+    "was": 23.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-O3ND",
+  "cat": "GMB",
+  "brand": "Flywoo",
+  "name": "DJI O3 Air Unit Camera ND Filters",
+  "meta": "Choose your ND, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 10.6,
+    "url": "https://www.racedayquads.com/products/flywoo-dji-o3-air-unit-camera-filters-choose-your-nd",
+    "was": 15.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-STICKY360",
+  "cat": "RXC",
+  "brand": "RadioMaster",
+  "name": "Sticky360 Stick Ends for AG01 Mini Gimbals",
+  "meta": "Choose version, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 9.99,
+    "url": "https://www.racedayquads.com/products/radiomaster-sticky360-mini-gimbal-stick-ends-choose-version",
+    "was": 17.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-HEYMAN",
+  "cat": "GMB",
+  "brand": "Heyman",
+  "name": "DJI FPV Gimbal Adapter",
+  "meta": "Gimbal mount adapter",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 9.09,
+    "url": "https://www.racedayquads.com/products/heyman-dji-gimbal-adapter",
+    "was": 14.3
+   }
+  ]
+ },
+ {
+  "id": "RDQ-AOS7ARM",
+  "cat": "FRM",
+  "brand": "iFlight",
+  "name": "AOS 7 EVO 7\" Replacement Arms",
+  "meta": "Carbon replacement arms",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 6.29,
+    "url": "https://www.racedayquads.com/products/iflight-aos-7-evo-7-replacement-arms",
+    "was": 11.12
+   }
+  ]
+ },
+ {
+  "id": "RDQ-PIRATKIT",
+  "cat": "FRM",
+  "brand": "PIRAT",
+  "name": "Hook V2 5\" Caddx Vista Mounting Kit",
+  "meta": "Vista mount hardware",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 6.02,
+    "url": "https://www.racedayquads.com/products/pirat-hook-v2-5-caddx-vista-mounting-kit",
+    "was": 10.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-TPU",
+  "cat": "TLS",
+  "brand": "RDQ",
+  "name": "1Kg Spool TPU 95A 1.75mm Filament",
+  "meta": "Choose colour, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 6.0,
+    "url": "https://www.racedayquads.com/products/rdq-1kg-spool-tpu-95a-1-75mm-filament-choose-color",
+    "was": 24.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-AXII-MMCX",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "Micro AXII 2 5.8GHz Straight MMCX Antenna",
+  "meta": "Choose polarization, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 5.6,
+    "url": "https://www.racedayquads.com/products/lumenier-micro-axii-2-5-8ghz-straight-mmcx-antenna-choose-your-polarization",
+    "was": 27.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-AXII-SMA",
+  "cat": "ANT",
+  "brand": "Lumenier",
+  "name": "Micro AXII 2 5.8GHz 90\u00b0 SMA Antenna",
+  "meta": "Choose version, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 5.6,
+    "url": "https://www.racedayquads.com/products/lumenier-micro-axii-2-5-8ghz-90-sma-antenna-choose-version",
+    "was": 27.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-KING2306",
+  "cat": "MTR",
+  "brand": "Flash Hobby",
+  "name": "King 2306.5 1900KV Motor",
+  "meta": "2306.5 stator, freestyle",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 5.59,
+    "url": "https://www.racedayquads.com/products/flash-hobby-king-2306-5-1900kv-motor",
+    "was": 19.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-FLASH2306",
+  "cat": "MTR",
+  "brand": "FlyFishRC",
+  "name": "Flash 2306 1750KV Motor",
+  "meta": "Choose colour, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 5.1,
+    "url": "https://www.racedayquads.com/products/flyfishrc-flash-2306-1750kv-motor",
+    "was": 25.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-FATSTRAP2",
+  "cat": "GGL",
+  "brand": "FatStraps",
+  "name": "2\" FPV Goggle Strap \u2014 Fatshark / Walksnail / DJI",
+  "meta": "Choose style, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 5.0,
+    "url": "https://www.racedayquads.com/products/fatstraps-2-fpv-goggle-strap-for-fatshark-or-dji",
+    "was": 24.99
+   }
+  ]
+ },
+ {
+  "id": "RDQ-X5BOT",
+  "cat": "FRM",
+  "brand": "HGLRC",
+  "name": "Sector X5 5\" Spare Bottom Base Plate",
+  "meta": "Carbon base plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 4.74,
+    "url": "https://www.racedayquads.com/products/hglrc-sector-x5-5-spare-bottom-base-plate",
+    "was": 8.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-AOS5R",
+  "cat": "FRM",
+  "brand": "iFlight",
+  "name": "AOS 5R Replacement Arm (1pc)",
+  "meta": "Single carbon arm",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 4.67,
+    "url": "https://www.racedayquads.com/products/iflight-aos-5r-replacement-arm-1pc",
+    "was": 7.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-X5MID",
+  "cat": "FRM",
+  "brand": "HGLRC",
+  "name": "Sector X5 5\" Spare Middle Plate",
+  "meta": "Carbon mid plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 4.66,
+    "url": "https://www.racedayquads.com/products/hglrc-sector-x5-5-spare-mid-plate",
+    "was": 8.49
+   }
+  ]
+ },
+ {
+  "id": "RDQ-AG01",
+  "cat": "RXC",
+  "brand": "RadioMaster",
+  "name": "TX16S CNC AG01 Hall Gimbal Set",
+  "meta": "Choose colour, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 181.99,
+    "url": "https://www.racedayquads.com/products/radiomaster-tx16s-cnc-ag01-hall-gimbal-choose-color"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-MKIICNC",
+  "cat": "RXC",
+  "brand": "RadioMaster",
+  "name": "TX16S MKII CNC Upgrade Parts Set V4",
+  "meta": "Choose colour, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 77.99,
+    "url": "https://www.racedayquads.com/products/radiomaster-tx16s-mkii-cnc-upgrade-parts-set-v4-choose-color"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-FACEPLATE",
+  "cat": "RXC",
+  "brand": "RadioMaster",
+  "name": "TX16S Transmitter Faceplate",
+  "meta": "Choose colour, from",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 32.49,
+    "url": "https://www.racedayquads.com/products/faceplate-for-radiomaster-tx16s-transmitter-carbon"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-1S380",
+  "cat": "BAT",
+  "brand": "GNB",
+  "name": "RDQ Series 3.8V 1S 380mAh 60C LiHV (10-pack)",
+  "meta": "Cabled PH2.0, whoop/micro",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 53.99,
+    "url": "https://www.racedayquads.com/products/10-pack-rdq-series-3-8v-1s-380mah-1s-60c-lihv-whoop-micro-battery-ph2-0"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-MOPAX",
+  "cat": "FRM",
+  "brand": "Rotor Village",
+  "name": "RVS Mopax Base 5\" Replacement Arm",
+  "meta": "Single carbon arm",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 5.58,
+    "url": "https://www.racedayquads.com/products/rotorvillage-rvs-mopax-base-5-replacement-arm"
+   }
+  ]
+ },
+ {
+  "id": "RDQ-AIRGATE",
+  "cat": "ACC",
+  "brand": "Gemfan",
+  "name": "Racing Pop-Up Airgates (3-pack, orange)",
+  "meta": "Collapsible race gates",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "RaceDayQuads",
+    "price": 41.56,
+    "url": "https://www.racedayquads.com/products/3x-gemfan-racing-pop-up-airgates-orange",
+    "was": 89.99
+   }
+  ]
+ },
+ {
+  "id": "PYR-AVATAPROP",
+  "cat": "PRP",
+  "brand": "Dronetech",
+  "name": "DJI Avata Replacement 2925 2.9\" Propellers",
+  "meta": "Choose colour, PC material",
+  "fits": [
+   "DJI Avata"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 3.99,
+    "was": 5.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/dronetech-dji-avata-replacement-2925-2-9-fpv-drone-propellers-choose-color"
+   }
+  ]
+ },
+ {
+  "id": "PYR-DJICAR",
+  "cat": "ACC",
+  "brand": "DJI",
+  "name": "FPV Car Charger",
+  "meta": "Charges Intelligent Flight Battery in-vehicle",
+  "fits": [
+   "DJI FPV"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 49.0,
+    "was": 69.0,
+    "url": "https://pyrodrone.com/collections/clearance/products/dji-fpv-car-charger"
+   }
+  ]
+ },
+ {
+  "id": "PYR-MOONLIGHT",
+  "cat": "PRP",
+  "brand": "Gemfan",
+  "name": "Moonlight V2 LED Props 51466L",
+  "meta": "5\" light-up props, on/off switch",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 3.99,
+    "was": 5.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/gemfan-moonlight-v2-led-props-51466l"
+   }
+  ]
+ },
+ {
+  "id": "PYR-PAGODA",
+  "cat": "ANT",
+  "brand": "ORT",
+  "name": "Pagoda Stubby 5.8GHz Antenna Set for DJI \u2014 RHCP (4pc)",
+  "meta": "Low-profile omni for DJI digital",
+  "fits": [
+   "DJI digital FPV systems"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 32.99,
+    "was": 44.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/ort-pagoda-stubby-5-8ghz-antenna-set-for-dji-rhcp"
+   }
+  ]
+ },
+ {
+  "id": "PYR-HEYMAN",
+  "cat": "GMB",
+  "brand": "Heyman",
+  "name": "DJI Gimbal Adapter",
+  "meta": "Keeps props out of frame",
+  "fits": [
+   "DJI FPV"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 12.99,
+    "was": 19.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/heyman-dji-gimbal-adapter"
+   }
+  ]
+ },
+ {
+  "id": "PYR-GOPOD",
+  "cat": "ACC",
+  "brand": "R3D Shifters",
+  "name": "GOPOD 25x25 (Whoop) Mounting Plate",
+  "meta": "Naked GoPro case mount",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 18.99,
+    "was": 22.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/r3d-shifters-r3d-gopod-25x25whoop-mounting-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-PROTON25",
+  "cat": "ACC",
+  "brand": "ImmersionRC",
+  "name": "Ghost Proton Pack 25x25 (3-pack)",
+  "meta": "VTX control wiring adapter",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 0.99,
+    "was": 9.95,
+    "url": "https://pyrodrone.com/collections/clearance/products/immersionrc-ghost-proton-pack-25x25-1"
+   }
+  ]
+ },
+ {
+  "id": "PYR-PROTON30",
+  "cat": "ACC",
+  "brand": "ImmersionRC",
+  "name": "Ghost Proton Pack 30x30 (3-pack)",
+  "meta": "VTX control wiring adapter",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 6.99,
+    "was": 9.95,
+    "url": "https://pyrodrone.com/collections/clearance/products/immersionrc-ghost-proton-pack-30x30"
+   }
+  ]
+ },
+ {
+  "id": "PYR-GRIPX9",
+  "cat": "RXC",
+  "brand": "TweetFPV",
+  "name": "Grip Tape for FrSky X9 Lite",
+  "meta": "Choose colour/pattern",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 6.99,
+    "was": 7.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/tweetfpv-grip-tape-for-frsky-x9-lite"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BVR-ARM",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Beaver Replacement Arm Core",
+  "meta": "Single carbon arm core",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.99,
+    "was": 3.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-beaver-replacement-arm-core"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BVR-ANT",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Beaver Replacement Universal Antenna Mount",
+  "meta": "TPU antenna mount",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 4.99,
+    "was": 9.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-beaver-replacement-universal-antenna-mount"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BVR-BOT",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Beaver Replacement Bottom Plate",
+  "meta": "Carbon bottom plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 5.49,
+    "was": 10.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-beaver-replacement-bottom-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BVR-FOAM",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Beaver Replacement Air Unit Foam",
+  "meta": "Vibration foam",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.49,
+    "was": 2.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-beaver-replacement-air-unit-foam"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BVR-PAD",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Beaver Replacement Battery Anti-Slip Pad",
+  "meta": "Grip pad",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.99,
+    "was": 3.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-beaver-replacement-battery-anti-slip-pad"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-TOP",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Top Plate",
+  "meta": "Carbon top plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 4.49,
+    "was": 8.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-top-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-CTR",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Center Plate",
+  "meta": "Carbon centre plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 5.99,
+    "was": 11.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-center-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-TIE",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Tie Plate",
+  "meta": "Carbon tie plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.99,
+    "was": 3.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-tie-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-TAIL",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Tail Post",
+  "meta": "Aluminium tail post",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 3.49,
+    "was": 6.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-tail-post"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-CAM",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Camera Mounting Plate",
+  "meta": "Camera mount",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.99,
+    "was": 3.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-replacement-camera-mounting-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-BRACE",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Cam Brace",
+  "meta": "Camera brace",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 4.49,
+    "was": 8.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-cam-brace"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-HW",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Hardware Set",
+  "meta": "Full screw/standoff set",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 3.49,
+    "was": 6.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-hardware-set"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-GRIP",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Lite Grip",
+  "meta": "Battery grip",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 2.49,
+    "was": 4.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-lite-grip"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-ANT",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement Antenna Holder",
+  "meta": "TPU antenna holder",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.49,
+    "was": 2.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-antenna-holder"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-FOAM",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Bobcat Replacement DJI Air Unit Foam",
+  "meta": "Vibration foam",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.49,
+    "was": 2.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-dji-air-unit-foam"
+   }
+  ]
+ },
+ {
+  "id": "PYR-TAD-TOP",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Tadpole Top Plate",
+  "meta": "Carbon top plate",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 3.99,
+    "was": 7.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-tadpole-top-plate"
+   }
+  ]
+ },
+ {
+  "id": "PYR-TAD-TAIL",
+  "cat": "FRM",
+  "brand": "Armattan",
+  "name": "Tadpole Aluminum Tail Post",
+  "meta": "Aluminium tail post",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 2.49,
+    "was": 4.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-tadpole-aluminum-tail-post"
+   }
+  ]
+ },
+ {
+  "id": "PYR-APEXARM",
+  "cat": "FRM",
+  "brand": "ImpulseRC",
+  "name": "APEX R-Lite 5\" Rear Hybrid Replacement Arm",
+  "meta": "5mm carbon arm, rear hybrid only",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 3.99,
+    "was": 5.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/replacement-5-arm-apex-r-lite-rear-hybrid"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-M2",
+  "cat": "TLS",
+  "brand": "Armattan",
+  "name": "Bobcat 18mm M2 Cup Head Screws (10pc)",
+  "meta": "Black anodised",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 1.49,
+    "was": 2.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-18mm-m2-iron-cup-head-screw-black-anodized-10-pieces"
+   }
+  ]
+ },
+ {
+  "id": "PYR-BOB-M3",
+  "cat": "TLS",
+  "brand": "Armattan",
+  "name": "Bobcat 12mm M3 F/F Standoff",
+  "meta": "Aluminium tapped spacer",
+  "fits": [
+   "FPV builds \u2014 check compatibility"
+  ],
+  "use": [
+   "FPV"
+  ],
+  "offers": [
+   {
+    "source": "Pyrodrone",
+    "price": 0.49,
+    "was": 0.99,
+    "url": "https://pyrodrone.com/collections/clearance/products/armattan-bobcat-part-12mm-m3-ff-alumi-tapped-standoff-spacer-for-bobcat-cage"
+   }
+  ]
  }
 ];
 
 
-let cat=null, ret=null, mod=null, use=null;
+// Hand-built entries above keep their verified compatibility and affiliate
+// links. catalog.js (built by build_catalog.py) adds everything else.
+// If catalog.js is missing the site still works — it just shows fewer parts.
+if (typeof generatedProducts !== 'undefined' && Array.isArray(generatedProducts)) {
+  const have = new Set(products.map(p => p.offers[0].url.split('?')[0]));
+  let added = 0;
+  for (const g of generatedProducts) {
+    if (have.has(g.offers[0].url.split('?')[0])) continue;   // no duplicates
+    products.push(g);
+    added++;
+  }
+  console.log(`Catalog: ${products.length} parts (${added} from feed)`);
+}
+
+let cat=null, ret=null, mod=null, use=null, sale=false;
 
 const esc = t => String(t).replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const best = p => p.offers.reduce((a,b)=>a.price<b.price?a:b);
+// A sale with an `until` date reverts to the original price on its own once
+// that date passes. No `until` means the sale runs until manually removed.
+function live(o){
+  if(o.was && o.until && new Date() > new Date(o.until + 'T23:59:59')){
+    return {...o, price:o.was, was:null, until:null, expired:true};
+  }
+  return o;
+}
+const best = p => p.offers.map(live).reduce((a,b)=>a.price<b.price?a:b);
 const stores = () => [...new Set(products.flatMap(p=>p.offers.map(o=>o.source)))].sort();
 
 const GENERIC = /^(any |most |complete aircraft|universal|frames? with|.*\bsystems?$|.*\bbuilds?$|any repair bench|.*\breceivers\)?$)/i;
@@ -3709,7 +5947,13 @@ const USES = ["FPV","Photography"];
 function openFilters(){ document.getElementById('ovFilters').classList.add('open'); }
 function closeFilters(){ document.getElementById('ovFilters').classList.remove('open'); }
 
+function onSale(p){ return p.offers.map(live).some(o=>o.was); }
+function pickSale(){ sale = !sale; chips(); render(); }
+
 function chips(){
+  const nSale = products.filter(onSale).length;
+  document.getElementById('saleChips').innerHTML =
+    `<div class="chip ${sale?'on':''}" onclick="pickSale()">On sale now<span class="n">${nSale}</span></div>`;
   document.getElementById('useChips').innerHTML =
     USES.map(u=>{
       const n=products.filter(p=>p.use.includes(u)).length;
@@ -3736,21 +5980,21 @@ function pickUse(u){ use = use===u?null:u; chips(); render(); }
 function pickCat(id){ cat = cat===id?null:id; chips(); render(); }
 function pickRet(r){ ret = ret===r?null:r; chips(); render(); }
 function pickMod(m){ mod = mod===m?null:m; chips(); render(); }
-function clearAll(){ cat=null; ret=null; mod=null; use=null; document.getElementById('q').value=''; chips(); render(); }
+function clearAll(){ cat=null; ret=null; mod=null; use=null; sale=false; document.getElementById('q').value=''; chips(); render(); }
 
 function render(){
   const q=document.getElementById('q').value.trim().toLowerCase();
   const sort=document.getElementById('sort').value;
   let list=products.filter(p=>
     (!cat||p.cat===cat) && (!ret||p.offers.some(o=>o.source===ret)) &&
-    (!mod||p.fits.includes(mod)) && (!use||p.use.includes(use)) &&
+    (!mod||p.fits.includes(mod)) && (!use||p.use.includes(use)) && (!sale||onSale(p)) &&
     (!q||(p.name+' '+p.meta+' '+p.brand+' '+p.fits.join(' ')).toLowerCase().includes(q)));
 
   if(sort==='price-asc') list.sort((a,b)=>best(a).price-best(b).price);
   if(sort==='price-desc') list.sort((a,b)=>best(b).price-best(a).price);
   if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
 
-  const nActive = [cat,ret,mod,use].filter(Boolean).length;
+  const nActive = [cat,ret,mod,use,sale||null].filter(Boolean).length;
   const active = nActive || q;
   document.getElementById('fcount').textContent = nActive ? nActive : '';
   document.getElementById('fcount').style.display = nActive ? 'inline-block' : 'none';
@@ -3775,8 +6019,9 @@ function render(){
         <div class="rfits">Fits ${fits}</div>
       </div>
       <div class="rside">
-        <div class="rprice">$${b.price.toFixed(2)}</div>
+        <div class="rprice">$${b.price.toFixed(2)}${b.was?`<span class="was">$${b.was.toFixed(2)}</span>`:''}</div>
         <div class="rstore">${esc(b.source)}</div>
+        ${b.was?'<div class="sale">Limited Time Sale</div>':''}
         ${p.offers.length>1?`<div class="rmulti">${p.offers.length} prices</div>`:''}
       </div>
     </div>`;
@@ -3785,14 +6030,14 @@ function render(){
 
 function showOffers(id){
   const p=products.find(x=>x.id===id); if(!p) return;
-  const sorted=[...p.offers].sort((a,b)=>a.price-b.price).slice(0,3);
+  const sorted=p.offers.map(live).sort((a,b)=>a.price-b.price).slice(0,3);
   document.getElementById('oBrand').textContent=p.brand;
   document.getElementById('oName').textContent=p.name;
   document.getElementById('oMeta').textContent=p.meta;
   document.getElementById('oList').innerHTML=sorted.map((o,i)=>
     `<a class="offer ${i===0?'best':''}" href="${esc(o.url)}" target="_blank" rel="noopener">
-      <div><div class="ostore">${esc(o.source)}</div>${i===0&&sorted.length>1?'<div class="obest">lowest price</div>':''}</div>
-      <div class="oprice">$${o.price.toFixed(2)} →</div>
+      <div><div class="ostore">${esc(o.source)}</div>${o.was?'<div class="sale">Limited Time Sale</div>':(i===0&&sorted.length>1?'<div class="obest">lowest price</div>':'')}</div>
+      <div class="oprice">$${o.price.toFixed(2)}${o.was?`<span class="was">$${o.was.toFixed(2)}</span>`:''} →</div>
     </a>`).join('');
   document.getElementById('ovOffers').classList.add('open');
 }
