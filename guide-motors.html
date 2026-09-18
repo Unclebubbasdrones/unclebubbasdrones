@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Choose a Brushless Motor — Uncle Bubba's Drones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+</head>
+<body>
+<div class="grid-overlay"></div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"><span>UB</span></span> UNCLE BUBBA'S DRONES</a>
+    <nav>
+      <a href="index.html">Catalog</a>
+      <a href="drones.html">By Drone</a>
+      <a href="guides.html" class="here">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="eyebrow">Buying guide</div>
+<h1>How to choose a brushless motor</h1>
+
+<p>Motor listings are a wall of numbers: 2306, 2450KV, 4-6S, 16x16mm. Each one narrows down whether the motor belongs on your aircraft. Here's what they mean.</p>
+
+<h2>The four digits: stator size</h2>
+<p>A "2306" motor has a stator 23mm wide and 6mm tall. The stator is the stationary iron core the windings wrap around, and its volume is roughly how much motor you're actually buying.</p>
+<ul>
+<li><strong>Wider</strong> (the first two digits) generally means more torque — better at swinging bigger props and recovering from sudden throttle changes</li>
+<li><strong>Taller</strong> (the last two) adds power too, but adds weight along with it</li>
+</ul>
+<p>Rough starting points: 65-75mm whoops run something like 0802; 3-inch toothpicks around 1404; 5-inch builds typically 2207 or 2306; 6-7 inch long range often 2807 or similar.</p>
+
+<h2>KV: speed versus torque</h2>
+<p>KV is how many RPM the motor turns per volt with no propeller attached. A 2450KV motor on a fully charged 4S pack (about 16.8V) spins far faster unloaded than a 1700KV motor on the same battery.</p>
+
+<p>The tradeoff is the whole game. <strong>High KV gives you RPM but less torque. Low KV gives torque but fewer revolutions.</strong> That's why KV never gets chosen on its own — it gets chosen against your battery and your props.</p>
+
+<div class="box">
+<p>The pattern to remember: <strong>more cells means you want lower KV.</strong> A motor built for 6S will usually be lower KV than the same motor sold for 4S, because the higher voltage makes up the difference. Putting a high-KV 4S motor on a 6S pack is a reliable way to cook it.</p>
+</div>
+
+<h2>Cell count: check it before anything else</h2>
+<p>Listings state a supported range like "2-6S" or "4-6S." This is not a suggestion. Exceeding it pushes current past what the windings and bearings tolerate, and motors fail fast when overvolted — sometimes in the first flight.</p>
+<p>If you already own batteries, start here and filter motors by what your packs can feed.</p>
+
+<h2>Mount pattern: the part that gets forgotten</h2>
+<p>The mounting holes have to line up with your frame's arms. Common patterns:</p>
+<ul>
+<li><strong>16x16mm</strong> — typical on 5-inch class motors</li>
+<li><strong>12x12mm</strong> — common on smaller builds</li>
+<li><strong>9x9mm</strong> — micro and toothpick classes</li>
+</ul>
+<p>Also check the shaft: props attach either by a threaded shaft and nut, or by screws into the bell. Getting this wrong means the motor physically won't accept your propellers.</p>
+
+<h2>A practical order to decide in</h2>
+<ul>
+<li>Start with your <strong>frame</strong> — it fixes your prop size and mount pattern</li>
+<li>Then your <strong>battery</strong> — cell count narrows the KV range</li>
+<li>Then pick <strong>stator size</strong> for that prop size</li>
+<li>Then choose <strong>KV</strong> within what your cell count supports</li>
+<li>Finally confirm your <strong>ESC</strong> can supply the current the motor draws</li>
+</ul>
+
+<h2>Buy four, not one</h2>
+<p>Motors from different production batches can vary slightly. Replacing one damaged motor in a set is normal and fine, but building a new aircraft from mismatched singles invites vibration that shows up as jello in your footage and as noise your flight controller has to filter out.</p>
+
+<div class="box">
+<p><strong>Before you order:</strong> confirm the cell count matches your packs, the mount pattern matches your frame, the prop size the motor is rated for matches your frame, and your ESC is rated above the motor's expected current draw.</p>
+</div>
+
+<p style="font-size:13px;margin-top:26px;">Specifications vary between manufacturers and change between production runs. Always check the manufacturer's own spec sheet before buying — see our <a href="disclosure.html" style="color:var(--green);text-decoration:underline;">disclosure</a>.</p>
+</main>
+<footer>
+  Uncle Bubba's Drones
+  <nav>
+    <a href="index.html">Catalog</a>
+    <a href="drones.html">By Drone</a>
+    <a href="guides.html">Guides</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="disclosure.html">Affiliate Disclosure</a>
+  </nav>
+</footer>
+</body>
+</html>
