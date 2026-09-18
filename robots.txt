@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /_headers
-
-Sitemap: https://unclebubbasdrones.com/sitemap.xml
